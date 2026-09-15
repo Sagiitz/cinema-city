@@ -13,7 +13,7 @@ target_metadata = metadata
 
 
 def _database_url() -> str:
-    configured_url = config.get_main_option("sqlalchemy.url").strip()
+    configured_url = (config.get_main_option("sqlalchemy.url") or "").strip()
     if configured_url:
         return normalize_database_url(configured_url)
     settings = load_settings()
